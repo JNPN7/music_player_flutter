@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:music_player/classes/playlist.dart';
 
 createPlaylistAlertDialog(BuildContext context){
   TextEditingController plalistName = TextEditingController();
@@ -19,7 +20,12 @@ createPlaylistAlertDialog(BuildContext context){
             ),
             FlatButton(
               onPressed: (){
-                
+                Playlist instance = Playlist(playlist: plalistName.text.toString());
+                instance.createPlaylist();
+                Navigator.of(context).pop();
+                Navigator.pushNamed(context, '/single_playlist', arguments: {
+                  'playlistName': plalistName.text.toString(),
+                });
               },
               child: Text('OK')
             ),
@@ -30,7 +36,6 @@ createPlaylistAlertDialog(BuildContext context){
 }
 
 Widget addPlaylist(BuildContext context){
-  
   return Container(
     height: 30,
     child: Row(

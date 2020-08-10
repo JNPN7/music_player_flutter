@@ -1,12 +1,11 @@
 import 'package:shared_preferences/shared_preferences.dart';
-// import 'dart:convert';
 
 class Playlist{
   String playlist;
   String playlistList = 'playlist_list';
   Playlist({this.playlist});
   
-  Future createPlaylist(List<String> datas ) async{
+  Future createPlaylist() async{ //List<String> datas 
     SharedPreferences prefs = await SharedPreferences.getInstance();
     List<String> listPlaylist = prefs.getStringList(this.playlistList) ?? [];
     listPlaylist.add(this.playlist);
@@ -16,6 +15,11 @@ class Playlist{
   Future<List<String>> getFileList() async{
     SharedPreferences prefs = await SharedPreferences.getInstance();
     return prefs.getStringList(this.playlist);
+  }
+
+  Future<List<String>> getAllPlaylist() async{
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getStringList(this.playlistList);
   }
 
   Future removeFiles(List<String> datas) async{

@@ -48,7 +48,9 @@ class _FavourateState extends State<Favourate> {
                       size: file['size'],
                       dateAdded: file['added_date']
                     );
-                    return MusicCard(fileInfo: filee);
+                    return FutureBuilder(
+                      builder: (context, snapshot) => MusicCard(fileInfo: filee, purpose: {},)
+                    );
                   }).toList(),
                 ),
               )

@@ -45,7 +45,8 @@ class _AllSongsState extends State<AllSongs> {
   // }
   @override
   Widget build(BuildContext context) {
-    // allFiles = ModalRoute.of(context).settings.arguments;
+    Map<String, String> purpose = ModalRoute.of(context).settings.arguments ?? {};
+    print(purpose);
     // all = allFiles['allFiles'];
     
     return Scaffold(
@@ -77,7 +78,9 @@ class _AllSongsState extends State<AllSongs> {
                     size: file['size'],
                     dateAdded: file['added_date']
                   );
-                  return MusicCard(fileInfo: filee);
+                  return FutureBuilder(
+                    builder: (context, snapshot) => MusicCard(fileInfo: filee, purpose: purpose)
+                  );
                 }).toList(),
               )
             );

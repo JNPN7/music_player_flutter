@@ -13,7 +13,11 @@ class PlaylistCard extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.only(left: 10, right: 10),
         child: InkWell(
-          onTap: (){print('haha');},
+          onTap: (){
+            Navigator.pushNamed(context, '/single_playlist', arguments: {
+              'playlistName': this.title,
+            });
+          },
           child: Column(
             children: <Widget>[
               Image(
