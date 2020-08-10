@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/juhel/Documents/apps/flutter_apps/music_player/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-v21/values-v21.xml",
+            "outputFile": "/home/juhel/Documents/apps/flutter_apps/music_player_flutter/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-v21/values-v21.xml",
             "map": [
                 {
                     "source": "/home/juhel/.gradle/caches/transforms-2/files-2.1/ba473c54fc46539b2bdfa0ebb5cc7313/permissions-3.8/res/values-v21/values-v21.xml",

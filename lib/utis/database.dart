@@ -14,7 +14,7 @@ class DBprovider{
   static final String columnAlbum = 'album';
   static final String columnDuration = 'duration';
   static final String columnSize  = 'size';
-  static final String columnAddedDate  = 'added_date';
+  static final String columnAddedDate  = 'addedDate';
   static final String columnFavorite = 'favorite';
   // static final String  columnPlaylist = 'playlist';
 
@@ -108,13 +108,14 @@ class DBprovider{
   }
 
   //Select data
-  Future<dynamic> query(int id) async{
+  Future<List<Map<String, dynamic>>> query(String name) async{
     Database db = await instance.database;
     return await db.rawQuery('''
-      SELECT * FROM $_tableName WHERE id = ?
+      SELECT * FROM $_tableName WHERE $columnName = ?
       ''',
-      [id]
+      [name]
     );
+    
   }
 
   //Select favorite data
